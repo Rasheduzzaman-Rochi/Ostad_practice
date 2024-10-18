@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+//Divider, ModelBottomSheet, TextField
+
 void main() {
   runApp(MyApp());
 }
@@ -11,40 +13,81 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-          // backgroundColor: Colors.black,
-          appBar: AppBar(
-            title: Text(
-              'SHOE SHOP',
-              style: TextStyle(fontWeight: FontWeight.bold),
+      title: 'Shoe Shop',
+      home: practice(),
+    );
+  }
+}
+
+class practice extends StatelessWidget {
+  const practice({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Shoe Shop', style: TextStyle(fontWeight: FontWeight.bold)),
+        centerTitle: true,
+        backgroundColor: Colors.lightBlueAccent,
+        toolbarHeight: 63,
+      ),
+      body: Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(
+              height: 100,
             ),
-            toolbarHeight: 63,
-            centerTitle: true,
-            backgroundColor: Colors.lightBlueAccent,
-          ),
-          body: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset('images/Shoe.png',
-                  width: 400, height: 300, fit: BoxFit.contain),
-              SizedBox(
-                height: 1,
-              ),
-              Text(
-                'Price:1500TK',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.deepPurpleAccent,
-                  foregroundColor: Colors.white,
-                  shadowColor: Colors.black,
-                  elevation: 4,
-                ),
-                  onPressed: () {},
-                  child: Text("BUY",style: TextStyle(fontSize: 20),))
-            ],
-          )),
+            ElevatedButton(
+                onPressed: () {
+                  // showAboutDialog(context: context);
+                  showModalBottomSheet(
+                      // backgroundColor: Colors.greenAccent.shade200,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30)),
+                      isScrollControlled: true,
+                      useSafeArea: true,
+                      context: context,
+                      builder: (ctx) {
+                        return Column(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.symmetric(vertical: 16),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Title',
+                                    style: TextStyle(fontSize: 20),
+                                  )
+                                ],
+                              ),
+                            ),
+                            Divider(
+                              height: 20,
+                              thickness: 4,
+                            ),
+                            Text('Sample'),
+                            Row(
+                              children: [
+                                ElevatedButton(
+                                  onPressed: () {},
+                                  child: Text('Cancel'),
+                                ),
+                                ElevatedButton(
+                                  onPressed: () {},
+                                  child: Text('Save'),
+                                )
+                              ],
+                            )
+                          ],
+                        );
+                      });
+                },
+                child: Text('Show dialog'))
+          ],
+        ),
+      ),
     );
   }
 }
