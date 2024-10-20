@@ -26,7 +26,7 @@ class practice extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Shoe Shop', style: TextStyle(fontWeight: FontWeight.bold)),
+        title: Text('Contact', style: TextStyle(fontWeight: FontWeight.bold)),
         centerTitle: true,
         backgroundColor: Colors.lightBlueAccent,
         toolbarHeight: 63,
@@ -84,7 +84,42 @@ class practice extends StatelessWidget {
                         );
                       });
                 },
-                child: Text('Show dialog'))
+                child: Text('Show dialog')),
+            SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: EdgeInsets.all(16), //line distance
+              child: TextField(
+                maxLength: 20,
+                onChanged: (String? value) {
+                  //show input list in the run
+                  print(value);
+                },
+                // obscureText: true,
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                  hintText: '  Phone',
+                  hintStyle: TextStyle(
+                    fontWeight: FontWeight.w400,
+                    color: Colors.grey,
+                  ),
+                  labelText: 'Phone Number',
+                  prefix:Icon(Icons.phone),
+                  suffixIcon: Icon(Icons.person),
+                  fillColor: Colors.white54,
+                  filled: true,
+                  counterStyle:TextStyle(fontSize: 15),
+                  border: OutlineInputBorder(),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.red),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.green,width: 2),
+                  )
+                ), //Text hide
+              ),
+            ),
           ],
         ),
       ),
