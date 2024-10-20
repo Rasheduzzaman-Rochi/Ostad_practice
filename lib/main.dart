@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-//Divider, ModelBottomSheet, TextField
-
 void main() {
   runApp(MyApp());
 }
@@ -14,114 +12,136 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Shoe Shop',
-      home: practice(),
+      home: Practice(),
     );
   }
 }
 
-class practice extends StatelessWidget {
-  const practice({super.key});
+class Practice extends StatelessWidget {
+  const Practice({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Contact', style: TextStyle(fontWeight: FontWeight.bold)),
+        title: const Text('Contact',
+            style: TextStyle(fontWeight: FontWeight.bold)),
         centerTitle: true,
         backgroundColor: Colors.lightBlueAccent,
         toolbarHeight: 63,
+        actions: [
+          IconButton(onPressed: () {}, icon: const Icon(Icons.contact_mail)),
+        ],
       ),
-      body: Center(
+      drawer: Drawer(
+        backgroundColor: Colors.white54,
+        width: 300,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(
-              height: 100,
-            ),
-            ElevatedButton(
-                onPressed: () {
-                  // showAboutDialog(context: context);
-                  showModalBottomSheet(
-                      // backgroundColor: Colors.greenAccent.shade200,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30)),
-                      isScrollControlled: true,
-                      useSafeArea: true,
-                      context: context,
-                      builder: (ctx) {
-                        return Column(
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.symmetric(vertical: 16),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'Title',
-                                    style: TextStyle(fontSize: 20),
-                                  )
-                                ],
-                              ),
-                            ),
-                            Divider(
-                              height: 20,
-                              thickness: 4,
-                            ),
-                            Text('Sample'),
-                            Row(
-                              children: [
-                                ElevatedButton(
-                                  onPressed: () {},
-                                  child: Text('Cancel'),
-                                ),
-                                ElevatedButton(
-                                  onPressed: () {},
-                                  child: Text('Save'),
-                                )
-                              ],
-                            )
-                          ],
-                        );
-                      });
-                },
-                child: Text('Show dialog')),
-            SizedBox(
-              height: 20,
-            ),
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: const [
             Padding(
-              padding: EdgeInsets.all(16), //line distance
-              child: TextField(
-                maxLength: 20,
-                onChanged: (String? value) {
-                  //show input list in the run
-                  print(value);
-                },
-                // obscureText: true,
-                keyboardType: TextInputType.number,
-                decoration: InputDecoration(
-                  hintText: '  Phone',
-                  hintStyle: TextStyle(
-                    fontWeight: FontWeight.w400,
-                    color: Colors.grey,
-                  ),
-                  labelText: 'Phone Number',
-                  prefix:Icon(Icons.phone),
-                  suffixIcon: Icon(Icons.person),
-                  fillColor: Colors.white54,
-                  filled: true,
-                  counterStyle:TextStyle(fontSize: 15),
-                  border: OutlineInputBorder(),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.red),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.green,width: 2),
-                  )
-                ), //Text hide
+              padding: EdgeInsets.all(16.0),
+              child: Text(
+                'Contact',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
+            ),
+            Divider(),
+            ListTile(
+              leading: Icon(Icons.phone),
+              title: Text('Phone'),
+            ),
+            ListTile(
+              leading: Icon(Icons.email),
+              title: Text('Email'),
             ),
           ],
         ),
+      ),
+      bottomNavigationBar: NavigationBar(destinations: const [
+        NavigationDestination(icon: Icon(Icons.home), label: 'HOME'),
+        NavigationDestination(icon: Icon(Icons.search), label: 'SEARCH'),
+      ]),
+      // body:Scrollbar(
+      //   child: SingleChildScrollView(
+      //     child: Column(
+      //         children:[
+      //           Text('Bye'),
+      //           Text('Bye'),
+      //           Text('Bye'),
+      //           Text('Bye'),
+      //           Text('Bye'),
+      //           Text('Bye'),
+      //           Text('Bye'),
+      //         ],
+      //       ),
+      //   ),
+      body: Scrollbar(
+        thickness: 10,
+        interactive: true,
+        // child: ListView(
+        //   padding: EdgeInsets.symmetric(horizontal: 16),
+        //   children: [
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //     Text('Bye'),
+        //   ],
+        // ),
+        child: ListView.builder(
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            itemCount: 100,
+            itemBuilder: (context, index) {
+              return Text('Item $index');
+            }),
       ),
     );
   }
