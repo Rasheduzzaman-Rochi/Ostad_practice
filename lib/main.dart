@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
 }
 
 class Practice extends StatelessWidget {
-  const Practice({super.key});
+  Practice({super.key});
 
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
@@ -41,16 +41,17 @@ class Practice extends StatelessWidget {
               controller: _emailController,
               decoration: InputDecoration(
                 labelText: "Email",
-                border: OutlineInputBorder(),
               ),
             ),
             TextField(
               controller: _passwordController,
               decoration: InputDecoration(
                 labelText: "Password",
-                border: OutlineInputBorder(),
               ),
             ),
+            ElevatedButton(onPressed: () {},
+            child: Text("Login"),
+            )
           ],
         ),
       ),
