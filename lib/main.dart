@@ -22,6 +22,7 @@ class Practice extends StatelessWidget {
 
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
+  GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -36,40 +37,65 @@ class Practice extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Center(
-          child: Column(
-            children: [
-              TextField(
-                controller: _emailController,
-                decoration: InputDecoration(
-                  labelText: "Email",
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
+          child: Form(
+            key: _formkey,
+            child: Column(
+              children: [
+                TextFormField(
+                  controller: _emailController,
+                  decoration: InputDecoration(
+                    labelText: "Email",
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    suffixIcon: Icon(Icons.email),
                   ),
-                  suffixIcon: Icon(Icons.email),
+                  validator: (String? value) {
+                    if (value == null || value.isEmpty) {
+                      return "Enter your email";
+                    }
+                    return null;
+                  },
                 ),
-              ),
-              SizedBox(height: 10),
-              TextField(
-                controller: _passwordController,
-                decoration: InputDecoration(
-                  labelText: "Password",
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
+                SizedBox(height: 10),
+                TextFormField(
+                  controller: _passwordController,
+                  decoration: InputDecoration(
+                    labelText: "Password",
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    suffixIcon: Icon(Icons.lock),
                   ),
-                  suffixIcon: Icon(Icons.lock),
+                  validator: (String? value) {
+                    if (value == null || value.isEmpty || value.length < 8) {
+                      return "Enter a password with at least 8 characters";
+                    }
+                    return null;
+                  },
                 ),
-              ),
-              SizedBox(height: 10),
-              ElevatedButton(
-                onPressed: () {},
-                child: Text(
-                  "Login",
-                  style: TextStyle(color: Colors.white),
+                SizedBox(height: 10),
+                ElevatedButton(
+                  onPressed: () {
+                    // String email = _emailController.text;
+                    // String password = _passwordController.text;
+                    // if (email.isNotEmpty && password.isNotEmpty) {
+                    //   print("Login Success");
+                    // } else
+                    //   print("Login Failure");
+                    if (_formkey.currentState!.validate()) {
+                      print("Login Success");
+                    }
+                  },
+                  child: Text(
+                    "Login",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blueAccent),
                 ),
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blueAccent),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
