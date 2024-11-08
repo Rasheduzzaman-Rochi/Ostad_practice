@@ -61,7 +61,7 @@ class Practice extends StatelessWidget {
                 SizedBox(height: 10),
                 TextFormField(
                   autovalidateMode: AutovalidateMode.onUserInteraction,
-                  obscureText: true, // for password input field
+                  obscureText: true,
                   controller: _passwordController,
                   decoration: InputDecoration(
                     labelText: "Password",
