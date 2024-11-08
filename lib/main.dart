@@ -66,8 +66,8 @@ class Practice extends StatelessWidget {
                   "Login",
                   style: TextStyle(color: Colors.white),
                 ),
-                style:
-                    ElevatedButton.styleFrom(backgroundColor: Colors.blueAccent),
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blueAccent),
               ),
             ],
           ),
