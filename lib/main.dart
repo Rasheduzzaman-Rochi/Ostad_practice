@@ -35,24 +35,42 @@ class Practice extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            TextField(
-              controller: _emailController,
-              decoration: InputDecoration(
-                labelText: "Email",
+        child: Center(
+          child: Column(
+            children: [
+              TextField(
+                controller: _emailController,
+                decoration: InputDecoration(
+                  labelText: "Email",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  suffixIcon: Icon(Icons.email),
+                ),
               ),
-            ),
-            TextField(
-              controller: _passwordController,
-              decoration: InputDecoration(
-                labelText: "Password",
+              SizedBox(height: 10),
+              TextField(
+                controller: _passwordController,
+                decoration: InputDecoration(
+                  labelText: "Password",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  suffixIcon: Icon(Icons.lock),
+                ),
               ),
-            ),
-            ElevatedButton(onPressed: () {},
-            child: Text("Login"),
-            )
-          ],
+              SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: () {},
+                child: Text(
+                  "Login",
+                  style: TextStyle(color: Colors.white),
+                ),
+                style:
+                    ElevatedButton.styleFrom(backgroundColor: Colors.blueAccent),
+              ),
+            ],
+          ),
         ),
       ),
     );
