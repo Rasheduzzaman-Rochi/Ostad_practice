@@ -42,6 +42,7 @@ class Practice extends StatelessWidget {
             child: Column(
               children: [
                 TextFormField(
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
                   controller: _emailController,
                   decoration: InputDecoration(
                     labelText: "Email",
@@ -59,6 +60,8 @@ class Practice extends StatelessWidget {
                 ),
                 SizedBox(height: 10),
                 TextFormField(
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  obscureText: true, // for password input field
                   controller: _passwordController,
                   decoration: InputDecoration(
                     labelText: "Password",
