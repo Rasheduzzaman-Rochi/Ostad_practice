@@ -139,7 +139,8 @@ class Practice extends StatelessWidget {
         child: ListView.builder(
             padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             itemCount: 100,
-            itemBuilder: (context, index) {
+            itemBuilder: (BuildContext context, int index) {
+              //build context,int aren't mandatory
               return Text('Item $index');
             }),
       ),
