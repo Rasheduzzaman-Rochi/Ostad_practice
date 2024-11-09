@@ -141,7 +141,18 @@ class Practice extends StatelessWidget {
             itemCount: 100,
             itemBuilder: (BuildContext context, int index) {
               //build context,int aren't mandatory
-              return Text('Item $index');
+              return Column(
+                children: [
+                  Text('Item $index'),
+                  Divider(
+                    height: 20,
+                    thickness: 3,
+                    color: Colors.grey,
+                    indent: 2,
+                    endIndent: 2,
+                  ),
+                ],
+              );
             }),
       ),
     );
