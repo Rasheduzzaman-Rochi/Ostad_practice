@@ -1,6 +1,6 @@
 # ostad_rafat
 
-Ostad rafat vhai practice program.
+Ostad rafat vhai Home program.
 
 ## Getting Started
 

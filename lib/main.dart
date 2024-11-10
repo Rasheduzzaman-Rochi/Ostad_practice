@@ -12,81 +12,103 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Shoe Shop',
-      home: Practice(),
+      home: Home(),
     );
   }
 }
 
-class Practice extends StatelessWidget {
-  Practice({super.key});
+class Home extends StatelessWidget {
+  Home({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Contact',
-            style: TextStyle(fontWeight: FontWeight.bold)),
-        centerTitle: true,
-        backgroundColor: Colors.lightBlueAccent,
-        toolbarHeight: 63,
+        title: Text("Home"),
       ),
-      body: Column(
-        children: [
-          Row(
-            children: [
-              Container(
-                height: 100,
-                width: 100,
-                padding: EdgeInsets.all(8),
-                alignment: Alignment.center,
-                margin: EdgeInsets.all(15),
-                child: Text("Random"),
-                decoration: BoxDecoration(
-                  color: Colors.red,
-                  boxShadow: <BoxShadow>[
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.5),
-                      offset: Offset(2, 2),
-                      blurRadius: 7,
-                      spreadRadius: 5,
-                    ),
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.5),
-                      offset: Offset(-2, -2),
-                      blurRadius: 5,
-                      spreadRadius: 7,
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                height: 100,
-                width: 100,
-                margin: EdgeInsets.only(left: 4),
-                decoration: BoxDecoration(
-                  color: Colors.green,
-                  border: Border.all(color: Colors.black, width: 3),
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(16),
-                    bottomRight: Radius.circular(16),
-                  ),
-                ),
-              ),
-              Container(
-                height: 100,
-                width: 100,
-                margin: const EdgeInsets.only(left: 10),
-                decoration: BoxDecoration(
-                  color: Colors.pink,
-                  shape: BoxShape.circle,
-                  border: Border.all(color: Colors.black),
-                  image: const DecorationImage(
-                      image: AssetImage("images/Shoe.png"), fit: BoxFit.cover),
-                ),
-              ),
-            ],
-          ),
-        ],
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Profile()));
+                },
+                child: Text("Go to profile")),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Settings()));
+              },
+              child: Text("Go to Settings"),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class Profile extends StatelessWidget {
+  const Profile({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Profile"),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => Home()));
+                },
+                child: Text("Back to Home")),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => Settings()));
+                },
+                child: Text("Go to Settings"))
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class Settings extends StatelessWidget {
+  const Settings({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Settings"),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => Home()));
+                },
+                child: Text("Back to Home")),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => Profile()));
+                },
+                child: Text("Back to Profile"))
+          ],
+        ),
       ),
     );
   }
