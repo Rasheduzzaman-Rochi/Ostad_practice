@@ -97,16 +97,18 @@ class Settings extends StatelessWidget {
           children: [
             ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => Home()));
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(builder: (context) => Home()),
+                      (predicate) => false);
                 },
-                child: Text("Back to Home")),
+                child: Text("Go to Home")),
             ElevatedButton(
                 onPressed: () {
                   Navigator.pushReplacement(context,
                       MaterialPageRoute(builder: (context) => Profile()));
                 },
-                child: Text("Back to Profile"))
+                child: Text("Back to Profile")),
           ],
         ),
       ),
