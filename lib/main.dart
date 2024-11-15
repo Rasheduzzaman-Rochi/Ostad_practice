@@ -13,6 +13,21 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Shoe Shop',
       home: Home(),
+      theme: ThemeData(
+          elevatedButtonTheme: ElevatedButtonThemeData(
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red,
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)))),
+          appBarTheme: AppBarTheme(
+              backgroundColor: Colors.green,
+              toolbarHeight: 63,
+              titleTextStyle: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+                fontSize: 28,
+              ))),
     );
   }
 }
