@@ -11,7 +11,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Home(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => Home(),
+        '/profile': (context) => Profile(),
+        '/settings': (context) => Settings(),
+      },
     );
   }
 }
@@ -29,10 +34,31 @@ class Home extends StatelessWidget {
           children: [
             ElevatedButton(
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Settings()));
+                Navigator.pushNamed(context, '/profile');
               },
-              child: Text("Go to Settings"),
+              child: Text("Go to Profile"),
+            )
+          ],
+        ));
+  }
+}
+
+class Profile extends StatelessWidget {
+  const Profile({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: Text("Profile"),
+        ),
+        body: Column(
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/settings');
+              },
+              child: Text("Go to Setting"),
             )
           ],
         ));
@@ -52,7 +78,8 @@ class Settings extends StatelessWidget {
           children: [
             ElevatedButton(
               onPressed: () {
-                Navigator.pop(context);
+                Navigator.pushNamedAndRemoveUntil(
+                    context, '/', (predicate) => false);
               },
               child: Text("Go to Home"),
             )
