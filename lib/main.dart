@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -13,9 +13,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
-        '/': (context) => Home(),
-        '/profile': (context) => Profile(),
-        '/settings': (context) => Settings(),
+        '/': (context) => const Home(),
+        '/profile': (context) => const Profile(),
+        '/settings': (context) => const Settings(),
       },
     );
   }
@@ -28,7 +28,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Home"),
+          title: const Text("Home"),
         ),
         body: Column(
           children: [
@@ -36,7 +36,7 @@ class Home extends StatelessWidget {
               onPressed: () {
                 Navigator.pushNamed(context, '/profile');
               },
-              child: Text("Go to Profile"),
+              child: const Text("Go to Profile"),
             )
           ],
         ));
@@ -50,7 +50,7 @@ class Profile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Profile"),
+          title: const Text("Profile"),
         ),
         body: Column(
           children: [
@@ -58,7 +58,7 @@ class Profile extends StatelessWidget {
               onPressed: () {
                 Navigator.pushNamed(context, '/settings');
               },
-              child: Text("Go to Setting"),
+              child: const Text("Go to Setting"),
             )
           ],
         ));
@@ -72,7 +72,7 @@ class Settings extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Settings"),
+          title: const Text("Settings"),
         ),
         body: Column(
           children: [
@@ -81,7 +81,7 @@ class Settings extends StatelessWidget {
                 Navigator.pushNamedAndRemoveUntil(
                     context, '/', (predicate) => false);
               },
-              child: Text("Go to Home"),
+              child: const Text("Go to Home"),
             )
           ],
         ));
