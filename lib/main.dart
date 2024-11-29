@@ -11,12 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const Home(),
-        '/profile': (context) => const Profile(),
-        '/settings': (context) => const Settings(),
-      },
+      home: Home(),
     );
   }
 }
@@ -26,64 +21,120 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size screensize = MediaQuery.of(context).size;
+    print(screensize.height);
+    print(screensize.width);
+    print(screensize.flipped);
+    print(MediaQuery.of(context).devicePixelRatio);
+    // print(MediaQuery.of(context).orientation);
+
     return Scaffold(
-        appBar: AppBar(
-          title: const Text("Home"),
-        ),
-        body: Column(
-          children: [
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/profile');
-              },
-              child: const Text("Go to Profile"),
-            )
-          ],
-        ));
+      appBar: AppBar(
+        title: const Text("Home"),
+      ),
+      body: OrientationBuilder(builder: (Context, orientation) {
+        if (orientation == Orientation.portrait) {
+          return Center(child: Text('Portrait Mode'));
+        } else {
+          return Center(child: Text('Landscape Mode'));
+        }
+      }),
+
+      // body: LayoutBuilder(
+      //   builder: (BuildContext context, BoxConstraints constraints) {
+      //     return Center(
+      //       child: Text('${constraints.maxHeight}'),
+      //     );
+      //   },
+      // ),
+
+      // body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+      //   Wrap(
+      //     // alignment: WrapAlignment.center,
+      //     // crossAxisAlignment: WrapCrossAlignment.center,
+      //     // spacing: 8,
+      //     children: [
+      //       ElevatedButton(
+      //         onPressed: () {},
+      //         child: const Text("Go to Profile"),
+      //       ),
+      //       ElevatedButton(
+      //         onPressed: () {},
+      //         child: const Text("Go to Profile"),
+      //       ),
+      //       ElevatedButton(
+      //         onPressed: () {},
+      //         child: const Text("Go to Profile"),
+      //       ),
+      //       ElevatedButton(
+      //         onPressed: () {},
+      //         child: const Text("Go to Profile"),
+      //       ),
+      //       ElevatedButton(
+      //         onPressed: () {},
+      //         child: const Text("Go to Profile"),
+      //       ),
+      //       ElevatedButton(
+      //         onPressed: () {},
+      //         child: const Text("Go to Profile"),
+      //       ),
+      //       ElevatedButton(
+      //         onPressed: () {},
+      //         child: const Text("Go to Profile"),
+      //       ),
+      //       ElevatedButton(
+      //         onPressed: () {},
+      //         child: const Text("Go to Prof;ile"),
+      //       ),
+      //     ],
+      //   ),
+      // ])
+    );
   }
 }
 
-class Profile extends StatelessWidget {
-  const Profile({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text("Profile"),
-        ),
-        body: Column(
-          children: [
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/settings');
-              },
-              child: const Text("Go to Setting"),
-            )
-          ],
-        ));
-  }
-}
-
-class Settings extends StatelessWidget {
-  const Settings({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text("Settings"),
-        ),
-        body: Column(
-          children: [
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamedAndRemoveUntil(
-                    context, '/', (predicate) => false);
-              },
-              child: const Text("Go to Home"),
-            )
-          ],
-        ));
-  }
-}
+// children: [
+//   SingleChildScrollView(
+//     scrollDirection: Axis.horizontal,
+//     child: Row(
+//       children: [
+//         ElevatedButton(
+//           onPressed: () {},
+//           child: const Text("Go to Profile"),
+//         ),
+//         ElevatedButton(
+//           onPressed: () {},
+//           child: const Text("Go to Profile"),
+//         ),
+//         ElevatedButton(
+//           onPressed: () {},
+//           child: const Text("Go to Profile"),
+//         ),
+//         ElevatedButton(
+//           onPressed: () {},
+//           child: const Text("Go to Profile"),
+//         ),
+//         ElevatedButton(
+//           onPressed: () {},
+//           child: const Text("Go to Profile"),
+//         ),
+//         ElevatedButton(
+//           onPressed: () {},
+//           child: const Text("Go to Profile"),
+//         ),
+//         ElevatedButton(
+//           onPressed: () {},
+//           child: const Text("Go to Profile"),
+//         ),
+//         ElevatedButton(
+//           onPressed: () {},
+//           child: const Text("Go to Profile"),
+//         ),
+//         ElevatedButton(
+//           onPressed: () {},
+//           child: const Text("Go to Profile"),
+//         ),
+//       ],
+//     ),
+//   )
+// ]
