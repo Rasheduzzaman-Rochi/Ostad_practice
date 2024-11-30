@@ -21,120 +21,36 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size screensize = MediaQuery.of(context).size;
-    print(screensize.height);
-    print(screensize.width);
-    print(screensize.flipped);
-    print(MediaQuery.of(context).devicePixelRatio);
-    // print(MediaQuery.of(context).orientation);
-
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Home"),
-      ),
-      body: OrientationBuilder(builder: (Context, orientation) {
-        if (orientation == Orientation.portrait) {
-          return Center(child: Text('Portrait Mode'));
-        } else {
-          return Center(child: Text('Landscape Mode'));
-        }
-      }),
-
-      // body: LayoutBuilder(
-      //   builder: (BuildContext context, BoxConstraints constraints) {
-      //     return Center(
-      //       child: Text('${constraints.maxHeight}'),
-      //     );
-      //   },
+      appBar: AppBar(title: const Text("Home")),
+      // body: AspectRatio(
+      //   aspectRatio: 14/10,
+      //   child: ColoredBox(color: Colors.orange),
       // ),
-
-      // body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-      //   Wrap(
-      //     // alignment: WrapAlignment.center,
-      //     // crossAxisAlignment: WrapCrossAlignment.center,
-      //     // spacing: 8,
-      //     children: [
-      //       ElevatedButton(
-      //         onPressed: () {},
-      //         child: const Text("Go to Profile"),
-      //       ),
-      //       ElevatedButton(
-      //         onPressed: () {},
-      //         child: const Text("Go to Profile"),
-      //       ),
-      //       ElevatedButton(
-      //         onPressed: () {},
-      //         child: const Text("Go to Profile"),
-      //       ),
-      //       ElevatedButton(
-      //         onPressed: () {},
-      //         child: const Text("Go to Profile"),
-      //       ),
-      //       ElevatedButton(
-      //         onPressed: () {},
-      //         child: const Text("Go to Profile"),
-      //       ),
-      //       ElevatedButton(
-      //         onPressed: () {},
-      //         child: const Text("Go to Profile"),
-      //       ),
-      //       ElevatedButton(
-      //         onPressed: () {},
-      //         child: const Text("Go to Profile"),
-      //       ),
-      //       ElevatedButton(
-      //         onPressed: () {},
-      //         child: const Text("Go to Prof;ile"),
-      //       ),
-      //     ],
-      //   ),
-      // ])
+      body: Column(
+        children: [
+          Flexible(
+              fit: FlexFit.tight,
+              flex: 4,
+              child: SizedBox(
+                width: double.maxFinite,
+                height: 100,
+                child: ColoredBox(color: Colors.black),
+              )),
+          Expanded(
+              flex: 3,
+              child: SizedBox(
+                width: double.maxFinite,
+                height: 100,
+                child: ColoredBox(color: Colors.orange),
+              )),
+          SizedBox(
+            width: double.maxFinite,
+            height: 50,
+            child: ColoredBox(color: Colors.blue),
+          )
+        ],
+      ),
     );
   }
 }
-
-// children: [
-//   SingleChildScrollView(
-//     scrollDirection: Axis.horizontal,
-//     child: Row(
-//       children: [
-//         ElevatedButton(
-//           onPressed: () {},
-//           child: const Text("Go to Profile"),
-//         ),
-//         ElevatedButton(
-//           onPressed: () {},
-//           child: const Text("Go to Profile"),
-//         ),
-//         ElevatedButton(
-//           onPressed: () {},
-//           child: const Text("Go to Profile"),
-//         ),
-//         ElevatedButton(
-//           onPressed: () {},
-//           child: const Text("Go to Profile"),
-//         ),
-//         ElevatedButton(
-//           onPressed: () {},
-//           child: const Text("Go to Profile"),
-//         ),
-//         ElevatedButton(
-//           onPressed: () {},
-//           child: const Text("Go to Profile"),
-//         ),
-//         ElevatedButton(
-//           onPressed: () {},
-//           child: const Text("Go to Profile"),
-//         ),
-//         ElevatedButton(
-//           onPressed: () {},
-//           child: const Text("Go to Profile"),
-//         ),
-//         ElevatedButton(
-//           onPressed: () {},
-//           child: const Text("Go to Profile"),
-//         ),
-//       ],
-//     ),
-//   )
-// ]
