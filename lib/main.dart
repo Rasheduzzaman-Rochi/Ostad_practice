@@ -1,6 +1,7 @@
-import "package:flutter/material.dart";
+import 'package:flutter/material.dart';
+import 'package:ostad_rafat/Screens/todo_screen.dart';
 
-void main() {
+void main(){
   runApp(const MyApp());
 }
 
@@ -9,48 +10,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Home(),
-    );
-  }
-}
-
-class Home extends StatelessWidget {
-  const Home({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text("Home")),
-      // body: AspectRatio(
-      //   aspectRatio: 14/10,
-      //   child: ColoredBox(color: Colors.orange),
-      // ),
-      body: Column(
-        children: [
-          Flexible(
-              fit: FlexFit.tight,
-              flex: 4,
-              child: SizedBox(
-                width: double.maxFinite,
-                height: 100,
-                child: ColoredBox(color: Colors.black),
-              )),
-          Expanded(
-              flex: 3,
-              child: SizedBox(
-                width: double.maxFinite,
-                height: 100,
-                child: ColoredBox(color: Colors.orange),
-              )),
-          SizedBox(
-            width: double.maxFinite,
-            height: 50,
-            child: ColoredBox(color: Colors.blue),
-          )
-        ],
-      ),
+      home:todoScreen(),
     );
   }
 }
