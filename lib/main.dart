@@ -54,25 +54,28 @@ class Home extends StatelessWidget {
       body: SafeArea(
         top: true,
         bottom: false,
-        child: Row(
-          children: [
-            Expanded(
-                child: Container(
-                  color: Colors.orange,
-                  height: 100,
-                )),
-            Expanded(
-                flex: 4,
-                child: Container(
-                  color: Colors.red,
-                  height: 100,
-                )),
-            Expanded(
-                child: Container(
-                  color: Colors.green,
-                  height: 100,
-                )),
-          ],
+        child: Tooltip(
+          message: "This ia a row",
+          child: Row(
+            children: [
+              Expanded(
+                  child: Container(
+                    color: Colors.orange,
+                    height: 100,
+                  )),
+              Expanded(
+                  flex: 4,
+                  child: Container(
+                    color: Colors.red,
+                    height: 100,
+                  )),
+              Expanded(
+                  child: Container(
+                    color: Colors.green,
+                    height: 100,
+                  )),
+            ],
+          ),
         ),
       ),
     );
