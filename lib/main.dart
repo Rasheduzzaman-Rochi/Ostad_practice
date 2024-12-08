@@ -56,6 +56,8 @@ class Home extends StatelessWidget {
         bottom: false,
         child: Tooltip(
           message: "This ia a row",
+          exitDuration: Duration(seconds: 2),
+          triggerMode: TooltipTriggerMode.tap,
           child: Row(
             children: [
               Expanded(
