@@ -22,7 +22,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Home")),
+      // appBar: AppBar(title: const Text("Home")),
       // body: AspectRatio(
       //   aspectRatio: 14/10,
       //   child: ColoredBox(color: Colors.orange),
@@ -52,6 +52,8 @@ class Home extends StatelessWidget {
       //   ],
       // ),
       body: SafeArea(
+        top: true,
+        bottom: false,
         child: Row(
           children: [
             Expanded(
