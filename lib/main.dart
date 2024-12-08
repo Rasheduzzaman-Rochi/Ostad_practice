@@ -1,7 +1,11 @@
 import "package:flutter/material.dart";
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(DevicePreview(
+      enabled: kDebugMode,
+      builder: (BuildContext context) => MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -62,9 +66,9 @@ class Home extends StatelessWidget {
             children: [
               Expanded(
                   child: Container(
-                    color: Colors.orange,
-                    height: 100,
-                  )),
+                color: Colors.orange,
+                height: 100,
+              )),
               Expanded(
                   flex: 4,
                   child: Container(
@@ -73,9 +77,9 @@ class Home extends StatelessWidget {
                   )),
               Expanded(
                   child: Container(
-                    color: Colors.green,
-                    height: 100,
-                  )),
+                color: Colors.green,
+                height: 100,
+              )),
             ],
           ),
         ),
