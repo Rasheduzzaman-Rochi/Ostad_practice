@@ -20,6 +20,9 @@ class _todoScreenState extends State<todoScreen> {
               title: Text('To-Do List'),
               subtitle: Text('description'),
               trailing: Text('Status'),
+              onTap:(){
+
+              }
             );
           }),
       floatingActionButton: FloatingActionButton(
