@@ -1,6 +1,6 @@
 import '../Screens/todo.dart';
 
-class TodoManager{
+class TodoManager {
   final List<Todo> _listofTodo = [];
 
   void addTodo(Todo todo) {

@@ -5,7 +5,7 @@ class updateTodo extends StatefulWidget {
   const updateTodo({super.key, required this.todo, required this.onUpdateTodo});
 
   final Todo todo;
-  final Function (Todo) onUpdateTodo;
+  final Function(Todo) onUpdateTodo;
 
   @override
   State<updateTodo> createState() => _AddNewTodoState();
@@ -14,7 +14,7 @@ class updateTodo extends StatefulWidget {
 class _AddNewTodoState extends State<updateTodo> {
   final TextEditingController _titleEditingController = TextEditingController();
   final TextEditingController _descriptionEditingController =
-  TextEditingController();
+      TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
@@ -54,9 +54,7 @@ class _AddNewTodoState extends State<updateTodo> {
                       hintText: 'Enter a title for your todo',
                     ),
                     validator: (String? value) {
-                      if (value == null || value
-                          .trim()
-                          .isEmpty) {
+                      if (value == null || value.trim().isEmpty) {
                         return 'Title is required';
                       }
                       return null;
@@ -73,9 +71,7 @@ class _AddNewTodoState extends State<updateTodo> {
                         labelText: 'Description',
                         hintText: 'Enter description for your todo'),
                     validator: (String? value) {
-                      if (value == null || value
-                          .trim()
-                          .isEmpty) {
+                      if (value == null || value.trim().isEmpty) {
                         return 'Description is required';
                       }
                       return null;
@@ -88,10 +84,10 @@ class _AddNewTodoState extends State<updateTodo> {
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
                           Todo todo = Todo(
-                            title: _titleEditingController.text.trim(),
-                            description: _descriptionEditingController.text
-                                .trim(),
-                          status: widget.todo.status);
+                              title: _titleEditingController.text.trim(),
+                              description:
+                                  _descriptionEditingController.text.trim(),
+                              status: widget.todo.status);
                           widget.onUpdateTodo(todo);
                           Navigator.pop(context);
                         }

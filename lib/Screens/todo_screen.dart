@@ -56,16 +56,20 @@ class _todoScreenState extends State<todoScreen> {
                         },
                         icon: Icon(Icons.delete)),
                     IconButton(
-                        onPressed:() => _showStatusDialog(index), icon: Icon(Icons.edit)),
+                        onPressed: () => _showStatusDialog(index),
+                        icon: Icon(Icons.edit)),
                   ],
                 ),
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => updateTodo(todo:todo,
-                        onUpdateTodo: (Todo updateTodo) {
-                          _updateTodo(index, updateTodo);
-                        },
-                      )));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => updateTodo(
+                                todo: todo,
+                                onUpdateTodo: (Todo updateTodo) {
+                                  _updateTodo(index, updateTodo);
+                                },
+                              )));
                 },
               );
             }),
